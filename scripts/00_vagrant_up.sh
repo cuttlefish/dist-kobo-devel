@@ -46,7 +46,7 @@ su - vagrant -c     "HOME=$VAGRANT_HOME sh   $V_S/kf_40_npm_installs.sh"
 su - vagrant -c     "bash $V_S/kf_50_migrate_db.bash"
 
 # Enketo Express:
-su - vagrant -c     "bash $V_S/enketo_install.bash"
+# su - vagrant -c     "bash $V_S/enketo_install.bash"
 
 su - vagrant -c     "sh   $V_S/09_add_cronjobs.sh"
 
