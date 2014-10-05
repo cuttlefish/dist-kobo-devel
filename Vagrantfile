@@ -39,15 +39,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./logs", "/home/vagrant/logs"
   config.vm.synced_folder "./backups", "/home/vagrant/backups"
 
-  config.vm.synced_folder "./scripts", "/home/vagrant/scripts", type: "rsync"
-  config.vm.synced_folder "./env", "/home/vagrant/env", type: "rsync"
+  config.vm.synced_folder "./scripts", "/home/vagrant/scripts"
+  config.vm.synced_folder "./puppet", "/home/vagrant/puppet"
+  config.vm.synced_folder "./env", "/home/vagrant/env"
 
 
   if File.directory? "src"
-    config.vm.synced_folder "./src", "/home/vagrant/src", type: "rsync"
+    config.vm.synced_folder "./src", "/home/vagrant/src"
   end
 
-  config.vm.provision :shell, inline: <<SCRIPT
+  config.vm.provision :shell, inline <<SCRIPT
     # Suppress subsequent stdin/tty complaints (for `root` user only).
     sed -i 's/^mesg n$/tty -s \\&\\& mesg n/g' /root/.profile
 
@@ -70,5 +71,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # run the initial script which installs all 3 apps
     sh /home/vagrant/scripts/00_vagrant_up.sh
-SCRIPT
+  SCRIPT
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "puppet/manifests"
+    puppet.manifest_file = "default.pp"
+    puppet.module_path = "puppet/modules"
+    puppet.hiera_config_pah = "puppet/hiera.yaml"
 end
