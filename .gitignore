@@ -5,6 +5,6 @@ kobocat
 koboform
 kobocat-template
 logs/*
-
+*.swp
 .DS_Store
 

@@ -1,0 +1,19 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    puppetlabs/apt (1.6.0)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/mongodb (0.8.0)
+      puppetlabs/apt (>= 1.0.0)
+      puppetlabs/stdlib (>= 2.2.0)
+    puppetlabs/nodejs (0.6.1)
+      puppetlabs/apt (>= 0.0.3)
+      puppetlabs/stdlib (>= 2.0.0)
+    puppetlabs/stdlib (4.3.2)
+    puppetlabs/vcsrepo (1.1.0)
+
+DEPENDENCIES
+  puppetlabs/mongodb (>= 0)
+  puppetlabs/nodejs (>= 0)
+  puppetlabs/vcsrepo (>= 0)
+

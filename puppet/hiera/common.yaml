@@ -1,0 +1,6 @@
+---
+
+kobocat::repo:
+  path: "/home/vagrant/src/kobocat"
+  repo_url: "https://github.com/kobotoolbox/kobocat.git"
+  branch: "master"
