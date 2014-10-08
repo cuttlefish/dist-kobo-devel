@@ -1,9 +1,12 @@
 forge "http://forge.puppetlabs.com"
 
-mod 'apt'
+mod 'puppetlabs/apt'
+mod 'stankevich/python'
 mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/nodejs'
 mod 'puppetlabs/mongodb'
+mod 'puppetlabs/postgresql'
+mod 'camptocamp/postgis'
 
 # mod 'puppetlabs/stdlib'
 

@@ -1,6 +1,14 @@
 ---
+python_shared::venv:
+  location: "/home/vagrant/.virtualenvs"
 
 kobocat::repo:
   path: "/home/vagrant/src/kobocat"
   repo_url: "https://github.com/kobotoolbox/kobocat.git"
   branch: "master"
+
+kobocat::venv:
+  name: "kc"
+  venv_path: "/home/vagrant/.virtualenvs"
+  postactivate_script: "env_kobocat"
+
